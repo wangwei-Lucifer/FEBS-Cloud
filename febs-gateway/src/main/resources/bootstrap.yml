@@ -4,12 +4,12 @@ spring:
   cloud:
     nacos:
       config:
-        server-addr: ${nacos.url}:8001
+        server-addr: 127.0.0.1:8848
         group: DEFAULT_GROUP
         prefix: febs-gateway
         file-extension: yaml
       discovery:
-        server-addr: ${nacos.url}:8001
+        server-addr: 127.0.0.1:8848
 
 logging:
   level:
@@ -19,3 +19,5 @@ logging:
           nacos:
             client:
               NacosPropertySourceBuilder: error
+server:
+  port: 8031

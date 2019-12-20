@@ -1,4 +1,4 @@
-version: '3'
+version: '2'
 
 services:
   elasticsearch:
@@ -29,17 +29,17 @@ services:
       - "elasticsearch.hosts=http://es:9200" #因为上面配置了域名，所以这里可以简写为 http://es:9200
     ports:
       - 5601:5601
-  logstash:
-    image: logstash:6.4.1
-    container_name: logstash
-    volumes:
-      - /febs/logstash/logstash-febs.conf:/usr/share/logstash/pipeline/logstash.conf
-    depends_on:
-      - elasticsearch
-    links:
-      - elasticsearch:es
-    ports:
-      - 4560:4560
+#  logstash:
+#    image: logstash:6.4.1
+#    container_name: logstash
+#    volumes:
+#      - /febs/logstash/logstash-febs.conf:/usr/share/logstash/pipeline/logstash.conf
+#    depends_on:
+#      - elasticsearch
+#    links:
+#      - elasticsearch:es
+#    ports:
+#      - 4560:4560
   skywalking-oap:
     image: apache/skywalking-oap-server:6.4.0
     container_name: skywalking-oap
